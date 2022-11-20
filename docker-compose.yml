@@ -1,0 +1,26 @@
+version: "3.3"
+services:
+  postgres:
+    image: postgres:14.5
+    restart: always
+    ports:
+      - 5432:5400
+    environment:
+      POSTGRES_DB: truenorth
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    networks:
+      - postgres
+
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  storage:
+  postgres:
+  pgadmin:

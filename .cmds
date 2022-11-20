@@ -1,0 +1,5 @@
+npx create-next-app tudu --typescript
+cd tudu
+yarn add next-auth @prisma/client @next-auth/prisma-adapter
+yarn add tailwindcss postcss autoprefixer daisyui
+npx tailwindcss init -p

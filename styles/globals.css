@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 200' style='fill:black;font-size:30px;'><text y='20%'>🌟</text></svg>")
+      16 0,
+    auto !important; /*!emojicursor.app*/
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.home {
+  animation: float 6s ease-in-out infinite;
+  margin: 0 auto;
+  text-align: center;
+}
+.root {
+  background-image: url("/bg.jpg");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Seymour One", cursive;
+}
+.glow {
+  filter: drop-shadow(0 0 2px rgb(255, 217, 0)) drop-shadow(0 0 5px #fff);
+}
+.logo {
+  color: #fe8fff;
+  filter: drop-shadow(0 0 10px magenta) drop-shadow(0 0 15px blue);
+}

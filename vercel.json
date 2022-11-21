@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/assets/:match*",
+      "destination": "https://storage.googleapis.com/weenie-dog-19f470d/:match*"
+    }
+  ]
+}

@@ -9,6 +9,8 @@ import { Session } from "next-auth";
 
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Toaster from "components/Toaster";
+import Assistant from "components/Assistant";
+import Head from "next/head";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -30,12 +32,17 @@ export function MyApp({
 
   return (
     <div className="root">
+      <Head>
+        <title>All hail the Weenie Dog!™️</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <SessionProvider session={initialSession || undefined}>
         {getLayout(<Component {...pageProps} />)}
         <ReactQueryDevtools />
 
         <Toaster />
       </SessionProvider>
+      <Assistant />
     </div>
   );
 }

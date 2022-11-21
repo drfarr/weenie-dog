@@ -5,6 +5,9 @@ import { DateTimeNullableFilterObjectSchema } from "./DateTimeNullableFilter.sch
 import { AccountListRelationFilterObjectSchema } from "./AccountListRelationFilter.schema";
 import { SessionListRelationFilterObjectSchema } from "./SessionListRelationFilter.schema";
 import { TodoListRelationFilterObjectSchema } from "./TodoListRelationFilter.schema";
+import { HotspotListRelationFilterObjectSchema } from "./HotspotListRelationFilter.schema";
+import { ProjectViewListRelationFilterObjectSchema } from "./ProjectViewListRelationFilter.schema";
+import { ProjectListRelationFilterObjectSchema } from "./ProjectListRelationFilter.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -48,6 +51,11 @@ const Schema: z.ZodType<Prisma.UserWhereInput> = z
     accounts: z.lazy(() => AccountListRelationFilterObjectSchema).optional(),
     sessions: z.lazy(() => SessionListRelationFilterObjectSchema).optional(),
     todos: z.lazy(() => TodoListRelationFilterObjectSchema).optional(),
+    Hotspot: z.lazy(() => HotspotListRelationFilterObjectSchema).optional(),
+    ProjectView: z
+      .lazy(() => ProjectViewListRelationFilterObjectSchema)
+      .optional(),
+    Project: z.lazy(() => ProjectListRelationFilterObjectSchema).optional(),
   })
   .strict();
 

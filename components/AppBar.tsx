@@ -1,3 +1,4 @@
+import { router } from "@trpc/server";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -18,20 +19,11 @@ export default function AppBar() {
       <div className="navbar-start">
         <div className="bg-base-100 dropdown btn-circle">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
-            </svg>
+            <div className="avatar">
+              <div className="w-10 rounded-full">
+                <img src={session?.user?.image as string} />
+              </div>
+            </div>
           </label>
           <ul
             tabIndex={0}
@@ -44,7 +36,13 @@ export default function AppBar() {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-2xl logo">Weenie Dog</a>
+        <a
+          onClick={() => router.push("/projects")}
+          style={{ textShadow: "#5c08ab 1px 1px 0px" }}
+          className="btn btn-ghost normal-case text-2xl logo"
+        >
+          Weenie Dog
+        </a>
         <Logo className="w-20 h-20 fill-neutral-content glow" />
       </div>
       <div className="navbar-end"></div>

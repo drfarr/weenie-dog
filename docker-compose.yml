@@ -4,9 +4,9 @@ services:
     image: postgres:14.5
     restart: always
     ports:
-      - 5432:5400
+      - 5400:5432
     environment:
-      POSTGRES_DB: truenorth
+      POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       PGDATA: /data/postgres
@@ -14,7 +14,6 @@ services:
       - postgres:/data/postgres
     networks:
       - postgres
-
 
 networks:
   postgres:

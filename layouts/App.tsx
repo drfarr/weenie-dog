@@ -6,10 +6,10 @@ import Footer from "components/Footer";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="container mx-auto min-h-full flex flex-col h-screen justify-between">
+    <div className="container mx-auto flex flex-col min-h-screen justify-between">
       <AppBar />
 
-      <div className="pt-4 flex flex-row mb-auto h-10">{children}</div>
+      <div className="pt-4 h-full flex flex-row mb-auto">{children}</div>
       <Footer />
     </div>
   );

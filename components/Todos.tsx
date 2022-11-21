@@ -1,4 +1,4 @@
-import useTodos from "lib/hooks/useTodos";
+import useTodos from "lib/hooks/hotspots/useHotspots";
 import useUpdateTodo from "lib/hooks/useUpdateTodo";
 import { TodoListOutput } from "types/trpc";
 

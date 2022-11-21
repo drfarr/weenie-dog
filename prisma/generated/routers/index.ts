@@ -4,6 +4,9 @@ import { sessionsRouter } from "./Session.router";
 import { usersRouter } from "./User.router";
 import { verificationtokensRouter } from "./VerificationToken.router";
 import { todosRouter } from "./Todo.router";
+import { hotspotsRouter } from "./Hotspot.router";
+import { projectviewsRouter } from "./ProjectView.router";
+import { projectsRouter } from "./Project.router";
 
 export const appRouter = createRouter()
 
@@ -16,3 +19,9 @@ export const appRouter = createRouter()
   .merge('verificationtoken.', verificationtokensRouter)
 
   .merge('todo.', todosRouter)
+
+  .merge('hotspot.', hotspotsRouter)
+
+  .merge('projectview.', projectviewsRouter)
+
+  .merge('project.', projectsRouter)

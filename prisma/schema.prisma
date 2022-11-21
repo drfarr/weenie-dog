@@ -81,8 +81,8 @@ model Todo {
   userId String @map("user_id")
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  updatedAt DateTime @updatedAt
-  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt @map("created_at")
+  createdAt DateTime @default(now()) @map("updated_at")
 
   @@map("todos")
 }
@@ -91,27 +91,34 @@ model Hotspot {
   id            String       @id @default(cuid())
   userId        String       @map("user_id")
   user          User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  colour        String       @default("#ff444a")
   description   String?
   x             String?
   y             String?
   title         String       @default("")
-  updatedAt     DateTime     @updatedAt
-  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt @map("created_at")
+  createdAt     DateTime     @default(now()) @map("updated_at")
   projectView   ProjectView? @relation(fields: [projectViewId], references: [id])
-  projectViewId String?
+  projectViewId String?      @map("project_view_id")
+
+  @@map("hotspots")
 }
 
 model ProjectView {
   id          String    @id @default(cuid())
+  title       String    @default("")
+  description String?
   resourceUrl String?   @map("resource_url")
   hotspots    Hotspot[]
   userId      String    @map("user_id")
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  order       Int
+  updatedAt   DateTime  @updatedAt @map("created_at")
+  createdAt   DateTime  @default(now()) @map("updated_at")
+  project     Project?  @relation(fields: [projectId], references: [id])
+  projectId   String?   @map("project_id")
 
-  updatedAt DateTime @updatedAt
-  createdAt DateTime @default(now())
-  project   Project? @relation(fields: [projectId], references: [id])
-  projectId String?
+  @@map("project_views")
 }
 
 model Project {
@@ -123,8 +130,8 @@ model Project {
   userId       String        @map("user_id")
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  updatedAt DateTime @updatedAt
-  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt @map("created_at")
+  createdAt DateTime @default(now()) @map("updated_at")
 
-  @@map("project")
+  @@map("projects")
 }

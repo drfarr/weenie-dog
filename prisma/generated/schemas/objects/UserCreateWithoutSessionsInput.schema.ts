@@ -1,6 +1,9 @@
 import { z } from "zod";
 import { AccountCreateNestedManyWithoutUserInputObjectSchema } from "./AccountCreateNestedManyWithoutUserInput.schema";
 import { TodoCreateNestedManyWithoutUserInputObjectSchema } from "./TodoCreateNestedManyWithoutUserInput.schema";
+import { HotspotCreateNestedManyWithoutUserInputObjectSchema } from "./HotspotCreateNestedManyWithoutUserInput.schema";
+import { ProjectViewCreateNestedManyWithoutUserInputObjectSchema } from "./ProjectViewCreateNestedManyWithoutUserInput.schema";
+import { ProjectCreateNestedManyWithoutUserInputObjectSchema } from "./ProjectCreateNestedManyWithoutUserInput.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -16,6 +19,15 @@ const Schema: z.ZodType<Prisma.UserCreateWithoutSessionsInput> = z
       .optional(),
     todos: z
       .lazy(() => TodoCreateNestedManyWithoutUserInputObjectSchema)
+      .optional(),
+    Hotspot: z
+      .lazy(() => HotspotCreateNestedManyWithoutUserInputObjectSchema)
+      .optional(),
+    ProjectView: z
+      .lazy(() => ProjectViewCreateNestedManyWithoutUserInputObjectSchema)
+      .optional(),
+    Project: z
+      .lazy(() => ProjectCreateNestedManyWithoutUserInputObjectSchema)
       .optional(),
   })
   .strict();

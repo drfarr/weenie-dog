@@ -4,6 +4,9 @@ import { NullableStringFieldUpdateOperationsInputObjectSchema } from "./Nullable
 import { NullableDateTimeFieldUpdateOperationsInputObjectSchema } from "./NullableDateTimeFieldUpdateOperationsInput.schema";
 import { AccountUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from "./AccountUncheckedUpdateManyWithoutUserNestedInput.schema";
 import { SessionUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from "./SessionUncheckedUpdateManyWithoutUserNestedInput.schema";
+import { HotspotUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from "./HotspotUncheckedUpdateManyWithoutUserNestedInput.schema";
+import { ProjectViewUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from "./ProjectViewUncheckedUpdateManyWithoutUserNestedInput.schema";
+import { ProjectUncheckedUpdateManyWithoutUserNestedInputObjectSchema } from "./ProjectUncheckedUpdateManyWithoutUserNestedInput.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -48,6 +51,17 @@ const Schema: z.ZodType<Prisma.UserUncheckedUpdateWithoutTodosInput> = z
       .optional(),
     sessions: z
       .lazy(() => SessionUncheckedUpdateManyWithoutUserNestedInputObjectSchema)
+      .optional(),
+    Hotspot: z
+      .lazy(() => HotspotUncheckedUpdateManyWithoutUserNestedInputObjectSchema)
+      .optional(),
+    ProjectView: z
+      .lazy(
+        () => ProjectViewUncheckedUpdateManyWithoutUserNestedInputObjectSchema
+      )
+      .optional(),
+    Project: z
+      .lazy(() => ProjectUncheckedUpdateManyWithoutUserNestedInputObjectSchema)
       .optional(),
   })
   .strict();

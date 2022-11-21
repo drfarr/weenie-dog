@@ -1,10 +1,21 @@
 /** @type {import('next').NextConfig} */
 require("./lib/trpc/env");
 const nextConfig = {
-  reactStrictMode: true,
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
+  reactStrictMode: false,
   swcMinify: true,
   images: {
-    domains: ["encrypted-tbn0.gstatic.com"],
+    domains: [
+      "encrypted-tbn0.gstatic.com",
+      "lh3.googleusercontent.com",
+      "localhost",
+    ],
   },
 };
 

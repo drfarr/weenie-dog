@@ -4,6 +4,9 @@ import { NullableStringFieldUpdateOperationsInputObjectSchema } from "./Nullable
 import { NullableDateTimeFieldUpdateOperationsInputObjectSchema } from "./NullableDateTimeFieldUpdateOperationsInput.schema";
 import { AccountUpdateManyWithoutUserNestedInputObjectSchema } from "./AccountUpdateManyWithoutUserNestedInput.schema";
 import { TodoUpdateManyWithoutUserNestedInputObjectSchema } from "./TodoUpdateManyWithoutUserNestedInput.schema";
+import { HotspotUpdateManyWithoutUserNestedInputObjectSchema } from "./HotspotUpdateManyWithoutUserNestedInput.schema";
+import { ProjectViewUpdateManyWithoutUserNestedInputObjectSchema } from "./ProjectViewUpdateManyWithoutUserNestedInput.schema";
+import { ProjectUpdateManyWithoutUserNestedInputObjectSchema } from "./ProjectUpdateManyWithoutUserNestedInput.schema";
 
 import type { Prisma } from "@prisma/client";
 
@@ -48,6 +51,15 @@ const Schema: z.ZodType<Prisma.UserUpdateWithoutSessionsInput> = z
       .optional(),
     todos: z
       .lazy(() => TodoUpdateManyWithoutUserNestedInputObjectSchema)
+      .optional(),
+    Hotspot: z
+      .lazy(() => HotspotUpdateManyWithoutUserNestedInputObjectSchema)
+      .optional(),
+    ProjectView: z
+      .lazy(() => ProjectViewUpdateManyWithoutUserNestedInputObjectSchema)
+      .optional(),
+    Project: z
+      .lazy(() => ProjectUpdateManyWithoutUserNestedInputObjectSchema)
       .optional(),
   })
   .strict();

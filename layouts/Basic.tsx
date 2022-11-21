@@ -11,11 +11,11 @@ export default function BasicLayout({
   const router = useRouter();
   useEffect(() => {
     if (data) {
-      router.push("/home");
+      router.push("/projects");
     }
   }, []);
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center">
+    <div className="w-screen min-h-screen flex flex-col items-center justify-center">
       {children}
     </div>
   );

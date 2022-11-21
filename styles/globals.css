@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 200' style='fill:black;font-size:30px;'><text y='20%'>🌟</text></svg>")
-      16 0,
-    auto !important; /*!emojicursor.app*/
-}
-
 @keyframes float {
   0% {
     transform: translatey(0px);
@@ -28,9 +22,13 @@
 .root {
   background-image: url("/bg.jpg");
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   font-family: "Seymour One", cursive;
+}
+
+.lucky {
+  font-family: "Luckiest Guy", cursive !important;
 }
 .glow {
   filter: drop-shadow(0 0 2px rgb(255, 217, 0)) drop-shadow(0 0 5px #fff);
@@ -38,4 +36,93 @@
 .logo {
   color: #fe8fff;
   filter: drop-shadow(0 0 10px magenta) drop-shadow(0 0 15px blue);
+}
+.intro {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='100' height='120' viewport='0 0 100 200' style='fill:black;font-size:30px;'><text y='20%'>🌟</text></svg>")
+      16 0,
+    auto !important;
+}
+.accordion {
+  list-style: none;
+}
+
+.accordion_item {
+  list-style: none;
+}
+
+.button {
+  border: none;
+}
+
+.control {
+  font-size: 20px;
+}
+
+.answer {
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+/* activate toggle */
+
+.answer_wrapper {
+  height: 0;
+  overflow: hidden;
+  transition: height ease 0.2s;
+}
+html {
+  background: #fff !important;
+}
+
+.shine {
+  text-shadow: 1px 1px 1px purple;
+  background-image: linear-gradient(
+    -40deg,
+    transparent 0%,
+    transparent 40%,
+    #fff 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200px;
+
+  background-clip: text;
+  animation-name: shine;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
+}
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+@-webkit-keyframes shine {
+  0%,
+  10% {
+    background-position: -1000px;
+  }
+  20% {
+    background-position: top left;
+  }
+  90% {
+    background-position: top right;
+  }
+  100% {
+    background-position: 1000px;
+  }
+}
+[data-rbd-draggable-context-id] {
+  width: 100% !important;
+  @apply snap-start;
+}
+[data-rbd-droppable-id="droppable"] {
+  padding: 0 !important;
+  width: 95% !important;
+  @apply snap-y;
+}
+#sidebar {
+  mask-image: linear-gradient(
+    to bottom,
+    black calc(100% - 30px),
+    transparent 100%
+  );
 }
